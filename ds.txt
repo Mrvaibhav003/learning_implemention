@@ -1,0 +1,134 @@
+Title:–Write a program to plot multiple lines on the same axis by using the plot 
+().
+Program:-
+import matplotlib.pyplot as plt 
+x = [1, 2, 3, 4, 5]
+y1 = [50, 20, 30, 10, 50]
+y2 = [15, 45, 15, 45, 55]
+y3 = [5, 15, 25, 35, 45]
+plt.plot(x, y1, color='blue', marker='o', linewidth=2, label='Line 1')
+plt.plot(x, y2, color='red', marker='s', linewidth=2,linestyle="--", label='Line 2') 
+plt.plot(x, y3, color='green', marker='^', linewidth=2,linestyle=":",label='Line 3') 
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Multiple Lines on Same Axis') 
+plt.grid(True, alpha=0.3)
+plt.legend() 
+plt.show()
+.
+.
+.
+Title:-Write a program to plot Bar chart using the savefig() function to save the
+current plot to a file.
+Program:–
+import matplotlib.pyplot as plt
+students = ['Prathamesh', 'Pankaj', 'Gaurav', 'Nilesh', 'Rohit'] 
+marks = [75, 80, 58, 75, 68]
+plt.bar(students, marks, color='blue') 
+plt.xlabel('Students Name') 
+plt.ylabel('Student Marks') 
+plt.title('STUDENT MARKS')
+plt.savefig('barchart.png') 
+plt.savefig('barchart1.png',
+facecolor='y', 
+bbox_inches='tight', 
+pad_inches=0.3, 
+transparent=True)
+plt.show()
+.
+.
+.
+Title:- Write a program to create a customized histogram with green bars,blue 
+edges, dashed border lines,semi-transparent fill and labelled axes and title.
+Program:-
+import matplotlib.pyplot as plt
+marks = [45, 55, 60, 62,63, 65, 68, 69, 70, 72, 75, 78, 80, 82, 83, 85, 88, 90, 92,
+98, 100]
+plt.hist(
+marks, bins=5, color='green', 
+edgecolor='blue', linestyle='--', alpha=0.6) 
+plt.xlabel('STUDENT MARKS') 
+plt.ylabel('NUMBER OF STUDENTS')
+plt.title('Customized Histogram of Student Marks') 
+plt.show()
+.
+.
+.
+Title:- Write a program to customize the appearance of a pie chart. [Rotate the 
+charts, separate slices, display percentages, apply custom colors, add shadows 
+and modify the slice borders].
+Program:-
+import matplotlib.pyplot as plt
+cars = ['AUDI', 'BMW', 'FORD','TESLA', 'JAGUAR', 'MERCEDES'] 
+sizes = [23, 17, 35, 29, 12, 41]
+colors = ['skyblue', 'orange', 'green', 'pink',"beige", "cyan"] 
+explode = [0.1,0.1,0.1,0.1,0.1,0.1]
+plt.pie(sizes , labels=cars, colors=colors,
+explode=explode, autopct='%1.1f%%', startangle=90,shadow=True, 
+wedgeprops={'edgecolor': 'black', 'linewidth': 2})
+plt.title('Car Salse') 
+plt.legend(cars,title="Cars",loc="center left", 
+bbox_to_anchor=(1.20,0.5))
+plt.show()
+.
+.
+.
+Title:- Write a program to create a Scatter Plot to compare the height and 
+weight of two different groups using different colors for each group.
+Program:–
+import numpy as np
+import matplotlib.pyplot as plt
+x1 = np.array([160, 165, 170, 175, 180, 185, 190, 195, 200, 205])
+y1 = np.array([55, 58, 60, 62, 64, 66, 68, 70, 72, 74])
+x2 = np.array([150, 155, 160, 165, 170, 175, 180, 195, 200, 205])
+y2 = np.array([50, 52, 54, 56, 58, 64, 66, 68, 70, 72])
+plt.scatter(x1, y1, color='blue', label='Group 1') 
+plt.scatter(x2, y2, color='red', label='Group 2') 
+plt.xlabel('HEIGHT (cm)') 
+plt.ylabel('WEIGHT (kg)')
+plt.title('Comparison of Height vs Weight between two groups') 
+plt.legend()
+plt.show()
+.
+.
+.
+Title:- Write a program to create a Box Plot to show the data distribution and 
+compare three groups using matplotlib.
+Program:-
+import matplotlib.pyplot as plt 
+group1 = [10, 12, 15, 18, 20, 22, 25]
+group2 = [15, 18, 20, 22, 25, 28, 30]
+group3 = [20, 23, 25, 27, 30, 32, 35]
+plt.boxplot(
+[group1, group2, group3], 
+tick_labels=['Group 1', 'Group 2', 'Group 3']
+)
+plt.xlabel('Groups') 
+plt.ylabel('Values')
+plt.title('Box Plot of Three Groups') 
+plt.show()
+.
+.
+.
+Title:-Write a Program to Create a Heatmap of random 10×10 data using 
+imshow().It uses ‘viridis’ color map and colorbar() adds a color scale.
+Program:–
+import numpy as np
+import matplotlib.pyplot as plt
+a = np.random.random((10, 10))
+plt.imshow(a, cmap='viridis', interpolation='nearest') 
+plt.colorbar()
+plt.show()
+.
+.
+.
+Title:-Write a Program to plot a pair plot with tips data frame using pairplot() 
+function.
+Program:-
+import pandas as pd 
+importseaborn as sns
+import matplotlib.pyplot as plt
+df = sns.load_dataset("tips") 
+print(df.head()) 
+sns.pairplot(df)
+plt.show()
